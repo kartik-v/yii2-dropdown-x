@@ -27,7 +27,7 @@ to the ```require``` section of your `composer.json` file.
 
 ## Usage
 
-### ContextMenu
+### DropdownX
 
 ```php
 use kartik\dropdown\DropdownX;

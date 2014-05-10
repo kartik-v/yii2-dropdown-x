@@ -7,6 +7,8 @@
  */
 
 namespace kartik\dropdown;
+use yii\helpers\Html;
+use yii\helpers\ArrayHelper;
 
 /**
  * An extended dropdown menu for Bootstrap 3 - that offers
@@ -17,14 +19,57 @@ namespace kartik\dropdown;
  */
 class DropdownX extends \yii\bootstrap\Dropdown
 {
-    const PLUGIN_NAME = 'contextmenu';
-
+    public $subMenuOptions = [];
+    
     /**
      * Initializes the widget
      */
     public function init()
     {
-        DropdownXAsset::register($this->view);
         parent::init();
+        DropdownXAsset::register($this->view);
+    }
+    
+    /**
+     * Renders menu items.
+     * @param array $items the menu items to be rendered
+     * @return string the rendering result.
+     * @throws InvalidConfigException if the label option is not specified in one of the items.
+     */
+    protected function renderItems($items)
+    {
+        $lines = [];
+        foreach ($items as $i => $item) {
+            if (isset($item['visible']) && !$item['visible']) {
+                unset($items[$i]);
+                continue;
+            }
+            if (is_string($item)) {
+                $lines[] = $item;
+                continue;
+            }
+            if (!isset($item['label'])) {
+                throw new InvalidConfigException("The 'label' option is required.");
+            }
+            $label = $this->encodeLabels ? Html::encode($item['label']) : $item['label'];
+            $options = ArrayHelper::getValue($item, 'options', []);
+            $linkOptions = ArrayHelper::getValue($item, 'linkOptions', []);
+            $linkOptions['tabindex'] = '-1';
+            
+            if (!empty($item['items'])) {
+                Html::addCssClass($linkOptions, 'dropdown-toggle');
+                $linkOptions['data-toggle'] = 'dropdown';
+                $content = Html::a($label, ArrayHelper::getValue($item, 'url', '#'), $linkOptions) .
+                           $this->renderItems($item['items']);
+                $options += $this->subMenuOptions;
+                Html::addCssClass($options, 'dropdown dropdown-submenu');
+            }
+            else {
+                $content = Html::a($label, ArrayHelper::getValue($item, 'url', '#'), $linkOptions);
+            }
+            $lines[] = Html::tag('li', $content, $options);
+        }
+
+        return Html::tag('ul', implode("\n", $lines), $this->options);
     }
 }

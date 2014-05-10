@@ -21,6 +21,7 @@ class DropdownXAsset extends \kartik\widgets\AssetBundle
     {
         $this->setSourcePath(__DIR__ . '/../assets');
         $this->setupAssets('css', ['css/dropdown-x']);
+        $this->setupAssets('js', ['js/dropdown-x']);
         parent::init();
     }
 

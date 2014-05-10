@@ -2,7 +2,8 @@ yii2-dropdown-x
 =================
 
 An extended bootstrap dropdown widget for Yii Framework 2 with submenu drilldown. This widget extends the `\yii\bootstrap\Dropdown` widget
-by adding the CSS Styles for enabling a submenu drilldown.
+with some additional controls and adds CSS and JS for enabling a submenu drilldown. The dropdown menu style is optimized for both desktop 
+and mobile devices. The drilldown is triggered on `active` instead of `hover` so that it works equally well on mobile devices.
 
 > NOTE: This extension depends on the [yiisoft/yii2-bootstrap](https://github.com/yiisoft/yii2/tree/master/extensions/bootstrap) extension. Check the 
 [composer.json](https://github.com/kartik-v/yii2-builder/blob/master/composer.json) for this extension's requirements and dependencies. 

@@ -7,6 +7,7 @@
  */
 
 namespace kartik\dropdown;
+use yii\base\InvalidConfigException;
 use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
 

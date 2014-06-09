@@ -32,14 +32,6 @@ class DropdownX extends \yii\bootstrap\Dropdown
     }
     
     /**
-     * Renders the widget.
-     */
-    public function run()
-    {
-        echo $this->renderItems($this->items);
-    }
-    
-    /**
      * Renders menu items.
      * @param array $items the menu items to be rendered
      * @return string the rendering result.

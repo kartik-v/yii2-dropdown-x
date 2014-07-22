@@ -34,11 +34,10 @@ class DropdownX extends \yii\bootstrap\Dropdown
     /**
      * Renders menu items.
      * @param array $items the menu items to be rendered
-     * @param array $containerOptions the HTML attributes for the widget container tag
      * @return string the rendering result.
      * @throws InvalidConfigException if the label option is not specified in one of the items.
      */
-    protected function renderItems($items, $containerOptions)
+    protected function renderItems($items)
     {
         $lines = [];
         foreach ($items as $i => $item) {
@@ -61,9 +60,9 @@ class DropdownX extends \yii\bootstrap\Dropdown
             if (!empty($item['items'])) {
                 Html::addCssClass($linkOptions, 'dropdown-toggle');
                 $linkOptions['data-toggle'] = 'dropdown';
-                unset($containerOptions['id']);
+                unset($this->_containerOptions['id']);
                 $content = Html::a($label, ArrayHelper::getValue($item, 'url', '#'), $linkOptions) .
-                           $this->renderItems($item['items'], $containerOptions);
+                           $this->renderItems($item['items']);
                 $options = ArrayHelper::merge($this->subMenuOptions, $options);
                 Html::addCssClass($options, 'dropdown dropdown-submenu');
             }
@@ -73,6 +72,6 @@ class DropdownX extends \yii\bootstrap\Dropdown
             $lines[] = Html::tag('li', $content, $options);
         }
 
-        return Html::tag('ul', implode("\n", $lines), $this->options);
+        return Html::tag('ul', implode("\n", $lines), $this->_containerOptions);
     }
 }

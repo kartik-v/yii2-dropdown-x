@@ -3,7 +3,7 @@
 /**
  * @copyright Copyright &copy; Kartik Visweswaran, Krajee.com, 2013
  * @package yii2-context-menu
- * @version 1.0.0
+ * @version 1.1.0
  */
 
 namespace kartik\dropdown;
@@ -14,7 +14,7 @@ namespace kartik\dropdown;
  * @author Kartik Visweswaran <kartikv2@gmail.com>
  * @since 1.0
  */
-class DropdownXAsset extends \kartik\widgets\AssetBundle
+class DropdownXAsset extends \kartik\base\AssetBundle
 {
 
     public function init()

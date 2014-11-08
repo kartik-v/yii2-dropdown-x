@@ -3,6 +3,7 @@ version 1.1.0
 **Date:** 08-Nov-2014
 
 - enh #5: Enhance dependency validation using common code base.
+- Release stable version.
 
 version 1.0.0
 =============

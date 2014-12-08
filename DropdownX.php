@@ -3,7 +3,7 @@
 /**
  * @copyright Copyright &copy; Kartik Visweswaran, Krajee.com, 2014
  * @package yii2-dropdown-x
- * @version 1.1.0
+ * @version 1.2.0
  */
 
 namespace kartik\dropdown;
@@ -32,12 +32,9 @@ class DropdownX extends \yii\bootstrap\Dropdown
     }
     
     /**
-     * Renders menu items.
-     * @param array $items the menu items to be rendered
-     * @return string the rendering result.
-     * @throws InvalidConfigException if the label option is not specified in one of the items.
+     * @inherit doc
      */
-    protected function renderItems($items)
+    protected function renderItems($items, $options = [])
     {
         $lines = [];
         foreach ($items as $i => $item) {
@@ -52,26 +49,33 @@ class DropdownX extends \yii\bootstrap\Dropdown
             if (!isset($item['label'])) {
                 throw new InvalidConfigException("The 'label' option is required.");
             }
-            $label = $this->encodeLabels ? Html::encode($item['label']) : $item['label'];
-            $options = ArrayHelper::getValue($item, 'options', []);
+            $encodeLabel = isset($item['encode']) ? $item['encode'] : $this->encodeLabels;
+            $label = $encodeLabel ? Html::encode($item['label']) : $item['label'];
+            $itemOptions = ArrayHelper::getValue($item, 'options', []);
             $linkOptions = ArrayHelper::getValue($item, 'linkOptions', []);
             $linkOptions['tabindex'] = '-1';
+            $url = array_key_exists('url', $item) ? $item['url'] : null;
             
-            if (!empty($item['items'])) {
+            if (empty($item['items'])) {
+                if ($url === null) {
+                    $content = $label;
+                    Html::addCssClass($itemOptions, 'dropdown-header');
+                } else {
+                    $content = Html::a($label, $url, $linkOptions);
+                }
+            } else {
                 Html::addCssClass($linkOptions, 'dropdown-toggle');
                 $linkOptions['data-toggle'] = 'dropdown';
-                unset($this->_containerOptions['id']);
-                $content = Html::a($label, ArrayHelper::getValue($item, 'url', '#'), $linkOptions) .
-                           $this->renderItems($item['items']);
-                $options = ArrayHelper::merge($this->subMenuOptions, $options);
-                Html::addCssClass($options, 'dropdown dropdown-submenu');
+                $submenuOptions = $options;
+                unset($submenuOptions['id']);
+                $content = Html::a($label, $url === null ? '#' : $url, $linkOptions)
+                    . $this->renderItems($item['items'], $submenuOptions);
+                Html::addCssClass($itemOptions, 'dropdown dropdown-submenu');
             }
-            else {
-                $content = Html::a($label, ArrayHelper::getValue($item, 'url', '#'), $linkOptions);
-            }
-            $lines[] = Html::tag('li', $content, $options);
+
+            $lines[] = Html::tag('li', $content, $itemOptions);
         }
 
-        return Html::tag('ul', implode("\n", $lines), $this->_containerOptions);
+        return Html::tag('ul', implode("\n", $lines), $options);
     }
 }

@@ -42,14 +42,15 @@
     border-left-color: currentColor;
 }
 
-@media (min-width: 766px) {
-    .dropdown-submenu > a > .caret {
-        display: none;
-    }
+.dropdown-submenu > a > .caret {
+    display: none;
 }
 
 @media (max-width: 767px) {
-    .dropdown-submenu > a:after {
+    .navbar .dropdown-submenu > a > .caret {
+        display: inline-block;
+    }
+    .navbar .dropdown-submenu > a:after {
         display: none;
     }
 }

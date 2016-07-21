@@ -39,6 +39,18 @@
     border-left-color: #555;
 }
 
+@media (min-width: 766px) {
+    .dropdown-submenu > a > .caret {
+        display: none;
+    }
+}
+
+@media (max-width: 767px) {
+    .dropdown-submenu > a:after {
+        display: none;
+    }
+}
+
 .pull-left.dropdown-submenu {
     float: none !important;
 }

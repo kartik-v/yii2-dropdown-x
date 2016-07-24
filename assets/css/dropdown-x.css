@@ -22,7 +22,8 @@
 }
 
 .dropdown-submenu > .dropdown-menu.dropdown-menu-left {
-    left: -100%;
+    left: auto;
+    right: 100%;
     margin-left: 1px;
     -webkit-border-radius: 6px 0 6px 6px;
     -moz-border-radius: 6px 0 6px 6px;

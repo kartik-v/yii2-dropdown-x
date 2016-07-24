@@ -21,37 +21,25 @@
     border-radius: 0 6px 6px 6px;
 }
 
-.dropdown-submenu > a:after {
-    display: block;
-    content: " ";
-    float: right;
-    width: 0;
-    height: 0;
-    border-color: transparent;
-    border-style: solid;
-    border-width: 5px 0 5px 5px;
-    border-left-color: currentColor;
-    margin-top: 5px;
-    margin-right: -10px;
-}
-
-.nav .dropdown-submenu.open > a,
-.nav .dropdown-submenu.open > a:hover,
-.nav .dropdown-submenu.open > a:focus {
-    border-color: transparent;
-    border-left-color: currentColor;
-}
-
 .dropdown-submenu > a > .caret {
-    display: none;
+    border-left: 4px solid;
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    border-right: 0 transparent;
+    position: absolute;
+    top: 50%;
+    right: 7px;
+    margin-top: -4px;
 }
 
 @media (max-width: 767px) {
     .navbar .dropdown-submenu > a > .caret {
-        display: inline-block;
-    }
-    .navbar .dropdown-submenu > a:after {
-        display: none;
+        border-top: 4px solid;
+        border-right: 4px solid transparent;
+        border-left: 4px solid transparent;
+        border-bottom: 0 transparent;
+        position: static;
+        margin-top: 0;
     }
 }
 

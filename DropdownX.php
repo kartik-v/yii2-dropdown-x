@@ -68,7 +68,7 @@ class DropdownX extends \yii\bootstrap\Dropdown
                 $linkOptions['data-toggle'] = 'dropdown';
                 $submenuOptions = $options;
                 unset($submenuOptions['id']);
-                $content = Html::a($label, $url === null ? '#' : $url, $linkOptions)
+                $content = Html::a($label . ' <b class="caret"></b>', $url === null ? '#' : $url, $linkOptions)
                     . $this->renderItems($item['items'], $submenuOptions);
                 Html::addCssClass($itemOptions, 'dropdown dropdown-submenu');
             }

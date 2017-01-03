@@ -36,7 +36,8 @@
     margin-right: -10px;
 }
 
-.dropdown-submenu:hover > a:after {
+.dropdown-submenu:hover > a:after,
+.dropdown-submenu.open > a:after {
     border-left-color: #555;
 }
 

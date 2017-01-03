@@ -14,6 +14,7 @@
 .dropdown-submenu > .dropdown-menu {
     top: 0;
     left: 100%;
+    right: auto;
     margin-top: -6px;
     margin-left: -1px;
     -webkit-border-radius: 0 6px 6px 6px;
@@ -35,7 +36,8 @@
     margin-right: -10px;
 }
 
-.dropdown-submenu:hover > a:after {
+.dropdown-submenu:hover > a:after,
+.dropdown-submenu.open > a:after {
     border-left-color: #555;
 }
 

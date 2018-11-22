@@ -9,7 +9,7 @@
  */
 (function ($) {
     $(document).ready(function () {
-        $('ul.dropdown-menu [data-toggle=dropdown]').on('click', function (event) {
+        $('body').on('click','ul.dropdown-menu [data-toggle=dropdown]', function (event) {
             event.preventDefault();
             event.stopPropagation();
             $(this).parent().siblings().removeClass('open');

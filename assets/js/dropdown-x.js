@@ -1,6 +1,6 @@
 /*!
- * @copyright &copy; Kartik Visweswaran, Krajee.com, 2014
- * @version 1.1.0
+ * @copyright &copy; Kartik Visweswaran, Krajee.com, 2014 - 2022
+ * @version 1.2.1
  *
  * Dropdown menu for Bootstrap 3 supporting submenu drilldown.
  * 

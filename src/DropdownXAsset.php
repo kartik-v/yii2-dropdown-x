@@ -1,22 +1,27 @@
 <?php
 
 /**
- * @copyright Copyright &copy; Kartik Visweswaran, Krajee.com, 2013
+ * @copyright Copyright &copy; Kartik Visweswaran, Krajee.com, 2014 - 2022
  * @package yii2-context-menu
- * @version 1.2.0
+ * @version 1.2.1
  */
 
 namespace kartik\dropdown;
 
+use kartik\base\AssetBundle;
+
 /**
- * DropdownX bundle for \kartik\dropdown\DropdownX
+ * DropdownX bundle for the [[DropdownX]] widget.
  *
  * @author Kartik Visweswaran <kartikv2@gmail.com>
- * @since 1.0
  */
-class DropdownXAsset extends \kartik\base\AssetBundle
+class DropdownXAsset extends AssetBundle
 {
 
+    /**
+     * @inheritDoc
+     * @throws \yii\base\InvalidConfigException
+     */
     public function init()
     {
         $this->setSourcePath(__DIR__ . '/assets');

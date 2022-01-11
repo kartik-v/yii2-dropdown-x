@@ -1,38 +1,41 @@
 <?php
 
 /**
- * @copyright Copyright &copy; Kartik Visweswaran, Krajee.com, 2014
+ * @copyright Copyright &copy; Kartik Visweswaran, Krajee.com, 2014 - 2022
  * @package yii2-dropdown-x
- * @version 1.2.0
+ * @version 1.2.1
  */
 
 namespace kartik\dropdown;
 use yii\base\InvalidConfigException;
 use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
+use \yii\bootstrap\Dropdown;
 
 /**
- * An extended dropdown menu for Bootstrap 3 - that offers
- * submenu drilldown
+ * DropdownX renders a Bootstrap 3.x dropdown menu component. This widget extends the default bootstrap [[Dropdown]]
+ * widget to include nested submenu behavior and styling.
  *
  * @author Kartik Visweswaran <kartikv2@gmail.com>
- * @since 1.0
  */
-class DropdownX extends \yii\bootstrap\Dropdown
+class DropdownX extends Dropdown
 {
+    /**
+     * @inheritDoc
+     */
     public $subMenuOptions = [];
     
     /**
-     * Initializes the widget
+     * @inheritDoc
      */
     public function init()
     {
         parent::init();
         DropdownXAsset::register($this->view);
     }
-    
+
     /**
-     * @inherit doc
+     * @inheritDoc
      */
     protected function renderItems($items, $options = [])
     {

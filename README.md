@@ -6,23 +6,28 @@
     yii2-dropdown-x
     <hr>
     <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=DTP3NZQ6G2AYU"
-       title="Donate via Paypal" target="_blank">
-        <img src="http://kartik-v.github.io/bootstrap-fileinput-samples/samples/donate.png" alt="Donate"/>
-    </a>
+       title="Donate via Paypal" target="_blank"><img height="60" src="https://kartik-v.github.io/bootstrap-fileinput-samples/samples/donate.png" alt="Donate"/></a>
+    &nbsp; &nbsp; &nbsp;
+    <a href="https://www.buymeacoffee.com/kartikv" title="Buy me a coffee" ><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" height="60" alt="kartikv" /></a>
 </h1>
 
-[![Latest Stable Version](https://poser.pugx.org/kartik-v/yii2-dropdown-x/v/stable)](https://packagist.org/packages/kartik-v/yii2-dropdown-x)
+<div align="center">
+
+[![Stable Version](https://poser.pugx.org/kartik-v/yii2-dropdown-x/v/stable)](https://packagist.org/packages/kartik-v/yii2-dropdown-x)
+[![Unstable Version](https://poser.pugx.org/kartik-v/yii2-dropdown-x/v/unstable)](https://packagist.org/packages/kartik-v/yii2-dropdown-x)
 [![License](https://poser.pugx.org/kartik-v/yii2-dropdown-x/license)](https://packagist.org/packages/kartik-v/yii2-dropdown-x)
 [![Total Downloads](https://poser.pugx.org/kartik-v/yii2-dropdown-x/downloads)](https://packagist.org/packages/kartik-v/yii2-dropdown-x)
 [![Monthly Downloads](https://poser.pugx.org/kartik-v/yii2-dropdown-x/d/monthly)](https://packagist.org/packages/kartik-v/yii2-dropdown-x)
 [![Daily Downloads](https://poser.pugx.org/kartik-v/yii2-dropdown-x/d/daily)](https://packagist.org/packages/kartik-v/yii2-dropdown-x)
 
+</div>
+
 An extended bootstrap dropdown widget for Yii Framework 2 with submenu drilldown. This widget extends the `\yii\bootstrap\Dropdown` widget
 with some additional controls and adds CSS and JS for enabling a submenu drilldown. The dropdown menu style is optimized for both desktop 
 and mobile devices. The drilldown is triggered on `active` instead of `hover` so that it works equally well on mobile devices.
 
-### Demo
-You can see detailed [documentation](http://demos.krajee.com/dropdown-x) on usage of the extension.
+### Docs & Demo
+You can see detailed [docs & demos](http://demos.krajee.com/dropdown-x) and the API [code documentation](https://docs.krajee.com/kartik-dropdown-dropdownx) on usage of the extension.
 
 ## Installation
 
